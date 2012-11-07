@@ -82,13 +82,13 @@
 		//Todo: Wysiwyg HTML editor form. This is stupid, considering it's for non-html knowing ppl =/
 		echo 
 		"<form action='index.php?page=2' method='post'>
-		Year: <br><input type='text' name='year'><br>
-		BC/AD:<br>
+		*Year: <br><input type='text' name='year'><br>
+		*BC/AD:<br>
 		<select name='suffix'>
 			<option name='BC'>BC</option>
 			<option name='AD'>AD</option>
 		</select><br>
-		Invention: <br><input type='text' name='invention'><br>
+		*Invention: <br><input type='text' name='invention'><br>
 		Description: <br><textarea name='desc' id='new-body' class='minLength maxLength ta reg' validatorprops='{minLength:2,maxLength:4999}'></textarea><br>
 		<input type='submit' name='submit'><br>
 		</form>";
@@ -99,23 +99,28 @@
 		$submit = mysql_real_escape_string(@$_POST['submit']);
 			if ($submit)
 			{
-				//Todo: Automatic redirection.
-				if ($suffix=='BC')
+				if ($year&&$invention)
 				{
-				$query = "insert into `timeline_bc` (`year`,`suffix`,`invention`,`desc`) values ('$year','BC','$invention','$desc')";
-				mysql_query($query) or die (mysql_error());
-				echo "$invention added for the time $year BC";
+					//Todo: Automatic redirection.
+					if ($suffix=='BC')
+					{
+					$query = "insert into `timeline_bc` (`year`,`suffix`,`invention`,`desc`) values ('$year','BC','$invention','$desc')";
+					mysql_query($query) or die (mysql_error());
+					echo "$invention added for the time $year BC";
+					}
+					if ($suffix=='AD')
+					{
+					$query2 = "insert into `timeline` (`year`,`suffix`,`invention`,`desc`) values ('$year','AD','$invention','$desc')";
+					mysql_query($query2) or die (mysql_error());
+					echo "$invention added for the time $year AD";
+					}
+					if ($suffix!='AD'||$suffix!='BC')
+					{
+					echo "What are you trying to do?!";
+					}
 				}
-				if ($suffix=='AD')
-				{
-				$query2 = "insert into `timeline` (`year`,`suffix`,`invention`,`desc`) values ('$year','AD','$invention','$desc')";
-				mysql_query($query2) or die (mysql_error());
-				echo "$invention added for the time $year AD";
-				}
-				if ($suffix!='AD'||$suffix!='BC')
-				{
-				echo "What are you trying to do?!";
-				}
+				else 
+				echo "Missing Field, Please Include The Year & Invention Title.
 			}
 		}
 		
