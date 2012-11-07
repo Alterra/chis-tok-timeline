@@ -34,7 +34,7 @@ jQuery(function(){
 
 		<div id="container">
    		<?php                                                                                               		
-			include '../include/connect.php';												
+			include 'connect.php';												
 			$page = @$_GET['page'];                                                                         		
 			
 			if ($page==''||$page=='1')                                                                      		
