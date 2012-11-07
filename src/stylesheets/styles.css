@@ -1,0 +1,65 @@
+/**
+ * @author GeekTantra
+ * @date 28 February 2010
+ */
+body {
+  font-family: "Arial","Verdana","Helvetica";
+  font-size: 0.9em;
+  margin: 1.5em;
+  background: #fff;
+}
+
+
+h1 {
+  font-size: 18px;
+  margin: 5px 0px 10px;
+  border-bottom: 1px dotted #FFF;
+  padding: 0px 0px 3px;
+}
+
+#new-body{
+width: 566px;
+height: 150px;
+max-width: 566px;
+min-width: 566px;
+}
+
+h3 {
+	margin-top: -20px;
+}
+
+ul.SlidingMenu {
+  list-style: none;
+  padding: 0em;
+  
+}
+ul.SlidingMenu a {
+  padding: 0.62em 1.5em;
+  text-decoration: none;
+  font-family: "verdana";
+  color: #000;
+  outline: none;
+  
+}
+ul.Horizontal li {
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+	width: 340px;
+}
+.ClearFix {
+  clear: both;
+}
+#HorizontalSlidingMenu {
+  background: url('../images/menubg.png') top left repeat-x;
+  
+}
+#HorizontalSlidingMenu li.Background {
+  background: url('../images/bg_menu_right.png') top right no-repeat;
+
+}
+#HorizontalSlidingMenu li.Background div{
+  background: url('../images/bg_menu.png') top left no-repeat;
+  height: 100%;
+  margin-right: 31px;
+}
