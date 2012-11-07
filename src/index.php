@@ -35,14 +35,24 @@
 		</div>
 
 		<div id="container">
-   		<?php                                                                                               		
-			include 'include/connect.php';												
+   		<?php        
+			/*
+			* Author: Aditya Jain
+			* Design & Concept: Joni Siiriainen
+			*/
+			
+			//Connect to the mysql server
+			include 'include/connect.php';	
+			//Obtain the variable 'page' from the URL.
 			$page = @$_GET['page'];                                                                         		
 			
+			//Main Pages
 			if ($page==''||$page=='1')                                                                      		
-			{                                                                                               		
+			{     
+			//Logic of time is stupid hence, only two tables for a descending bc and an ascending bc, jesus christ... literally.
 			$query = mysql_query("select * from `timeline` order by `year` asc");                           		
-			$query2 = mysql_query("select * from `timeline_bc` order by `year` desc");                      		
+			$query2 = mysql_query("select * from `timeline_bc` order by `year` desc");   
+				//While LOOP. Lol igcse cst.
 				while ($row2 = mysql_fetch_assoc($query2))                                                  		
 				{                                                                                           		
 				$year = $row2['year'];                                                                      		
@@ -67,8 +77,10 @@
 				}                                                                                           	
 			}                                                                                               	
 			
+			//Add Content Page
 			if ($page=='2')
 			{
+			//Todo: Wysiwyg HTML editor form. This is stupid, considering it's for non-html knowing ppl =/
 			echo "<form action='index.php?page=2' method='post'>
 			Year: <br><input type='text' name='year'><br>
 			BC/AD:<br>
@@ -88,6 +100,7 @@
 			$submit = mysql_real_escape_string(@$_POST['submit']);
 				if ($submit)
 				{
+					//Todo: Automatic redirection.
 					if ($suffix=='BC')
 					{
 					$query = "insert into `timeline_bc` (`year`,`suffix`,`invention`,`desc`) values ('$year','BC','$invention','$desc')";
@@ -103,6 +116,8 @@
 				}
 			}
 			
+			//Delete Content
+			//ToDo: People restrictions probably could do this easily from a login system for non-morons.
 			if ($page=='3')
 			{
 			echo "<div>";
