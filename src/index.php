@@ -7,15 +7,14 @@
 	<link rel="stylesheet" href="stylesheets/styles.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="stylesheets/jquery.sliding-menu.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-<!-- jQuery UI is Optional. Its only required if using easing functions. -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="javascripts/jquery.sliding-menu.js"></script>
-<script type="text/javascript">
-jQuery(function(){
-  jQuery('#HorizontalSlidingMenu .SlidingMenu').slidingMenu();
-  jQuery('#VerticalSlidingMenu .SlidingMenu').slidingMenu({ initialOpacity: 0.5 });
-});
-</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.sliding-menu.js"></script>
+	<script type="text/javascript">
+	jQuery(function(){
+	  jQuery('#HorizontalSlidingMenu .SlidingMenu').slidingMenu();
+	  jQuery('#VerticalSlidingMenu .SlidingMenu').slidingMenu({ initialOpacity: 0.5 });
+	});
+	</script>
 </head>
 <body>
 	<center>
@@ -23,14 +22,17 @@ jQuery(function(){
 		<div id="header">
 		<img src="images/timeline.png">
 		</div>
-  <div id="HorizontalSlidingMenu">
-    <ul class="SlidingMenu Horizontal">
-      <center><li><a href="index.php?page=1">Home</a></li>
-      <li><a href="index.php?page=2">Add Content</a></li>
-      <li><a href="index.php?page=3">Delete Content</a></li></center>
-    </ul>
-    <div class="ClearFix"></div>
-  </div>
+		<div id="HorizontalSlidingMenu">
+			<ul class="SlidingMenu Horizontal">
+			  <center>
+			  <li><a href="index.php?page=1">Home</a></li>
+			  <li><a href="index.php?page=2">Add Content</a></li>
+			  <li><a href="index.php?page=3">Delete Content</a></li>
+			  </center>
+			</ul>
+			<div class="ClearFix">
+			</div>
+		</div>
 
 		<div id="container">
    		<?php                                                                                               		
@@ -88,9 +90,9 @@ jQuery(function(){
 				{
 					if ($suffix=='BC')
 					{
-				$query = "insert into `timeline_bc` (`year`,`suffix`,`invention`,`desc`) values ('$year','BC','$invention','$desc')";
-				mysql_query($query) or die (mysql_error());
-				echo "$invention added for the time $year $suffix";
+					$query = "insert into `timeline_bc` (`year`,`suffix`,`invention`,`desc`) values ('$year','BC','$invention','$desc')";
+					mysql_query($query) or die (mysql_error());
+					echo "$invention added for the time $year $suffix";
 					}
 					if ($suffix=='AD')
 					{
