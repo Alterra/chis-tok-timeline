@@ -21,7 +21,7 @@ jQuery(function(){
 	<center>
 	<div id="wrapper">
 		<div id="header">
-		<img src="timeline.png">
+		<img src="images/timeline.png">
 		</div>
   <div id="HorizontalSlidingMenu">
     <ul class="SlidingMenu Horizontal">
@@ -34,7 +34,7 @@ jQuery(function(){
 
 		<div id="container">
    		<?php                                                                                               		
-			include 'connect.php';												
+			include 'include/connect.php';												
 			$page = @$_GET['page'];                                                                         		
 			
 			if ($page==''||$page=='1')                                                                      		
